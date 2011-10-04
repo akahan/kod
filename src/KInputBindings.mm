@@ -113,9 +113,9 @@ uint64_t KInputBindings::parseSequence(NSString *seq) {
     } else if (c != '-') {
       if (c == '<') {
         // read named function key
-        NSUInteger x = i;
+        NSUInteger x;
         c = 0;
-        for (x; x<r.length; ++x) {
+        for (x = i; x<r.length; ++x) {
           if (ucbuf[x] == '>') {
             NSString *funcname =
                 [seq substringWithRange:NSMakeRange(i+1, x-(i+1))];

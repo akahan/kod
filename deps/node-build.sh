@@ -4,12 +4,11 @@ cd "$(dirname $0)/node"
 # synthesize Xcode env vars when running on our own
 if [ "$CONFIGURATION_BUILD_DIR" = "" ]; then
   # TODO: query xcodebuild for the active build style
-  BUILD_STYLE=$1
-  if [ "$BUILD_STYLE" != "Debug" ] && [ "$BUILD_STYLE" != "Release" ]; then
-    BUILD_STYLE=Debug
+  if [ "$CONFIGURATION" != "Debug" ] && [ "$CONFIGURATION" != "Release" ]; then
+    CONFIGURATION=Debug
   fi
   PRODUCT_NAME=nodejs
-  CONFIGURATION_BUILD_DIR=../../build/$BUILD_STYLE
+  CONFIGURATION_BUILD_DIR=../../build/$CONFIGURATION
   ARCHS=x64
 fi
 
@@ -48,12 +47,13 @@ fi
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # let's build
+echo "info: Building $CONFIGURATION for architectures $ARCHS"
+
 WAF="python tools/waf-light --jobs=$(sysctl -n hw.ncpu)"
 WAF_MAKE="$WAF --check-c-compiler=clang --product-type=cstaticlib --debug build"
 
 # debug build is treated differently (_g suffix, debug subdir, etc) by WAF
-if [ "$BUILD_STYLE" = "Debug" ]; then
-  echo "info: Building debug"
+if [ "$CONFIGURATION" = "Debug" ]; then
   $WAF --without-snapshot "--blddir=${NODE_BUILD_DIR}" --debug configure
   $WAF_MAKE
   NODE_PICKUP_DIR="${NODE_BUILD_DIR}/debug"
@@ -61,7 +61,6 @@ if [ "$BUILD_STYLE" = "Debug" ]; then
   mv "${NODE_PICKUP_DIR}/libv8_g.a" "${NODE_LIBV8_PRODUCT}"
 else
 # release build
-  echo "info: Building release for architectures $ARCHS"
   LAST_BUILT_ARCH=
   BUILT_ARCHS_COUNT=0
   NODE_LIBNODE_PRODUCTS=

@@ -5,12 +5,12 @@ cd "$(dirname "$0")/lua"
 # synthesize Xcode env vars when running on our own
 if [ "$CONFIGURATION_BUILD_DIR" = "" ]; then
   # TODO: query xcodebuild for the active build style
-  BUILD_STYLE=$1
-  if [ "$BUILD_STYLE" != "Debug" ] && [ "$BUILD_STYLE" != "Release" ]; then
-    BUILD_STYLE=Debug
+  CONFIGURATION=$1
+  if [ "$CONFIGURATION" != "Debug" ] && [ "$CONFIGURATION" != "Release" ]; then
+    CONFIGURATION=Debug
   fi
   PRODUCT_NAME=lua
-  CONFIGURATION_BUILD_DIR=../../build/$BUILD_STYLE
+  CONFIGURATION_BUILD_DIR=../../build/$CONFIGURATION
   ARCHS="$2"
   if [ "$ARCHS" == "" ]; then ARCHS=x86_64; fi
 fi
@@ -41,13 +41,13 @@ if [ $IS_DIRTY -eq 0 ]; then
 fi
 
 LUA_CFLAGS='-Wall'
-if [ "$BUILD_STYLE" = "Debug" ]; then
+if [ "$CONFIGURATION" = "Debug" ]; then
   LUA_CFLAGS="${LUA_CFLAGS} -g -O0"
 else
   LUA_CFLAGS="${LUA_CFLAGS} -O2"
 fi
 
-echo "info: Building $BUILD_STYLE for architectures $ARCHS"
+echo "info: Building $CONFIGURATION for architectures $ARCHS"
 BUILT_ARCHS_COUNT=0
 LUA_LIBLUA_PRODUCTS=
 

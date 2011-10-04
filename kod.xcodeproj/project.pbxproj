@@ -92,7 +92,6 @@
 		3A8D37DA12F6DF92007666FC /* ASTNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D37D612F6DF92007666FC /* ASTNode.mm */; };
 		3A8D37DB12F6DF92007666FC /* ASTParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D37D812F6DF92007666FC /* ASTParser.mm */; };
 		3A8D383212F6E995007666FC /* AST.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D383112F6E995007666FC /* AST.mm */; };
-		3A8D385F12F6EEFC007666FC /* libgazelle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8D385E12F6EEFC007666FC /* libgazelle.a */; };
 		3A9291181229B93C00DA7E43 /* Toolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9291171229B93C00DA7E43 /* Toolbar.xib */; };
 		3A92911B1229B96A00DA7E43 /* KDocument.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3A92911A1229B96A00DA7E43 /* KDocument.mm */; };
 		3A92911E1229B9D500DA7E43 /* KToolbarController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3A92911D1229B9D500DA7E43 /* KToolbarController.mm */; };
@@ -421,7 +420,6 @@
 		3A8D37D912F6DF92007666FC /* ASTParser.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ASTParser.hh; sourceTree = "<group>"; };
 		3A8D380F12F6E53F007666FC /* Grammar.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Grammar.hh; sourceTree = "<group>"; };
 		3A8D383112F6E995007666FC /* AST.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AST.mm; sourceTree = "<group>"; };
-		3A8D385E12F6EEFC007666FC /* libgazelle.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgazelle.a; path = build/Debug/gazelle/libgazelle.a; sourceTree = "<group>"; };
 		3A928C14122714E800DA7E43 /* KAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAppDelegate.h; sourceTree = "<group>"; };
 		3A928C15122714E800DA7E43 /* KAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KAppDelegate.mm; sourceTree = "<group>"; };
 		3A928C16122714E800DA7E43 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -538,7 +536,6 @@
 		3AE5E5161290955000B17C4F /* kod.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = kod.icns; path = icon/kod.icns; sourceTree = "<group>"; };
 		3AE5E8A912915ABA00B17C4F /* CSS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CSS.xcodeproj; path = "deps/libcss/cocoa-framework/CSS.xcodeproj"; sourceTree = "<group>"; };
 		3AE5EA551292B2D000B17C4F /* kconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kconf.h; sourceTree = "<group>"; };
-		3AE5EB871292DB5C00B17C4F /* CSS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSS.framework; path = "deps/libcss/cocoa-framework/build/Release/CSS.framework"; sourceTree = "<group>"; };
 		3AE5ECB41292F7B800B17C4F /* KThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KThread.h; sourceTree = "<group>"; };
 		3AE5ECB51292F7B800B17C4F /* KThread.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KThread.mm; sourceTree = "<group>"; };
 		3AEC6C8B12BC12FB00F769DB /* KLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLineNumberMarker.h; sourceTree = "<group>"; };
@@ -579,7 +576,6 @@
 				3AA91F3612CA469100132A25 /* libdl.dylib in Frameworks */,
 				3AA91F3812CA469B00132A25 /* libz.dylib in Frameworks */,
 				3AA91F3C12CA46B200132A25 /* libssl.dylib in Frameworks */,
-				3A8D385F12F6EEFC007666FC /* libgazelle.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,8 +807,6 @@
 		3A928BED1227143800DA7E43 = {
 			isa = PBXGroup;
 			children = (
-				3A8D385E12F6EEFC007666FC /* libgazelle.a */,
-				6A5C071513662AE90063FED9 /* CSS.framework */,
 				3AE5E8A912915ABA00B17C4F /* CSS.xcodeproj */,
 				3A92916A1229BDAA00DA7E43 /* chromium-tabs.xcodeproj */,
 				3A928C13122714E800DA7E43 /* src */,
@@ -892,9 +886,9 @@
 		3A92914F1229BD5E00DA7E43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A5C071513662AE90063FED9 /* CSS.framework */,
 				3AAA9F4112BFB7B50079F079 /* Sparkle.framework */,
 				3A158AFE128A0A3700339E6E /* libicucore.dylib */,
-				3AE5EB871292DB5C00B17C4F /* CSS.framework */,
 				3ABF537912A5D0D80020233C /* FScript.framework */,
 				3A510BE912C2927A00AAC1D5 /* Security.framework */,
 				3AA8124412C2BDFC0085F086 /* SecurityFoundation.framework */,
@@ -1555,7 +1549,6 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/bin;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1581,7 +1574,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				GCC_PREPROCESSOR_DEFINITIONS = "NDEBUG=1";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/bin;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = (
@@ -1633,6 +1625,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1641,6 +1635,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -1648,10 +1643,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3AA91E5D12C95CC000132A25 /* debug.xcconfig */;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/build/Debug/gazelle\"",
-				);
 			};
 			name = Debug;
 		};
@@ -1659,10 +1650,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3AA91E5E12C95CC000132A25 /* release.xcconfig */;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/build/Debug/gazelle\"",
-				);
 			};
 			name = Release;
 		};

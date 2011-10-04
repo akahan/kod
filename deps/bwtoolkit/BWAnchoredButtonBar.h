@@ -11,12 +11,12 @@
 @interface BWAnchoredButtonBar : NSView
 {
   BOOL isResizable, isAtBottom, handleIsRightAligned;
-  int selectedIndex;
+  NSInteger selectedIndex;
   id splitViewDelegate;
 }
 
-@property BOOL isResizable, isAtBottom, handleIsRightAligned;
-@property int selectedIndex;
+@property (assign, nonatomic) BOOL isResizable, isAtBottom, handleIsRightAligned;
+@property (nonatomic) NSInteger selectedIndex;
 
 // The mode of this bar with a resize handle makes use of some NSSplitView delegate methods. Use the splitViewDelegate for any custom delegate implementations
 // you'd like to provide.

@@ -4,12 +4,12 @@ cd "$(dirname "$0")/gazelle"
 # synthesize Xcode env vars when running on our own
 if [ "$CONFIGURATION_BUILD_DIR" = "" ]; then
   # TODO: query xcodebuild for the active build style
-  BUILD_STYLE=$1
-  if [ "$BUILD_STYLE" != "Debug" ] && [ "$BUILD_STYLE" != "Release" ]; then
-    BUILD_STYLE=Debug
+  CONFIGURATION=$1
+  if [ "$CONFIGURATION" != "Debug" ] && [ "$CONFIGURATION" != "Release" ]; then
+    CONFIGURATION=Debug
   fi
   PRODUCT_NAME=gazelle
-  CONFIGURATION_BUILD_DIR=../../build/$BUILD_STYLE
+  CONFIGURATION_BUILD_DIR=../../build/$CONFIGURATION
   ARCHS="$2"
   if [ "$ARCHS" == "" ]; then ARCHS=x86_64; fi
 fi
@@ -40,7 +40,7 @@ if [ $IS_DIRTY -eq 0 ]; then
   exit 0
 fi
 
-echo "info: Building $BUILD_STYLE for architectures $ARCHS"
+echo "info: Building $CONFIGURATION for architectures $ARCHS"
 BUILT_ARCHS_COUNT=0
 LIBGZ_PRODUCTS=
 GZLC_PRODUCTS=
@@ -52,7 +52,7 @@ for arch in $ARCHS; do
   # build, thus we do not paralellize make.
   CFLAGS="-arch $arch -g -I../lua/src" \
   CPPFLAGS="-arch $arch -g -I../lua/src" \
-  LDFLAGS="-arch $arch \"-L${BUILT_PRODUCTS_DIR:-../../build/${BUILD_STYLE}}/lua\"" \
+  LDFLAGS="-arch $arch \"-L${BUILT_PRODUCTS_DIR:-../../build/${CONFIGURATION}}/lua\"" \
     make
   
   mv -vf gzlc gzlc-$arch

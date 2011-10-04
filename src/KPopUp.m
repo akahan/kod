@@ -75,7 +75,7 @@
 }
 
 
-static const NSInteger kCancelButtonTag = 194779208747102;
+static const long long kCancelButtonTag = 194779208747102;
 
 
 - (NSButton*)_findEscapeKeyTriggersCloseButton {
